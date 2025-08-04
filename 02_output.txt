@@ -1,0 +1,49 @@
+=========== INPUT FILE CONTENT ===========
+START:
+MOV A, B
+ADD A, 5
+LOOP:
+SUB B, 1
+JMP LOOP
+END:
+ORG 100
+DS 5
+EQU 10
+MACRO
+MUL A, B
+DIV A, B
+LOAD A, 20
+STORE B, A
+ENDMACRO
+
+=========== OUTPUT ===========
+
+--- Label Table (LT) ---
+START
+LOOP
+END
+
+--- Symbol Table (ST) ---
+END -> Line 7
+LOOP -> Line 4
+START -> Line 1
+
+--- Machine Opcode Table (MOT) ---
+ADD
+JMP
+MOV
+SUB
+
+--- Pseudo Opcode Table (POT) ---
+DIV
+DS
+END
+ENDMACRO
+EQU
+LOAD
+LOOP
+MACRO
+MUL
+ORG
+START
+STORE
